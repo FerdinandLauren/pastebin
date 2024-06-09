@@ -13,22 +13,34 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/index.css" />
     <link href="assets/css/output.css" rel="stylesheet">
-
+    <link rel="icon" href="assets/img/logop.jpg">
     <title>Pastebin</title>
 </head>
 
 <body class="font-Poppins">
     <!-- Header -->
     <header>
-        <nav class="fixed top-0 bg-white w-full flex justify-center items-center gap-x-96 py-4 z-20 shadow-xl">
+        <nav class="fixed top-0 bg-white w-full flex justify-center items-center gap-x-96 py-1 z-20 shadow-xl">
             <!-- <div class="py-1"><img src="assets/img/logo-bookmark.svg" alt="" /></div> -->
-            <h1 class="font-bold text-2xl text-blue-950">Pastebin</h1>
+            <h1 class="flex items-center font-bold text-2xl text-blue-950">
+                <img src="assets/img/logopng.png" alt="Logo" class="w-16 h-16">astebin
+            </h1>
+
             <div></div>
             <ul class="flex justify-end items-center gap-12 text-bookmark-blue uppercase text-xs">
                 <li class="cursor-pointer"><a href="#feature">Features</a></li>
                 <li class="cursor-pointer"><a href="#user">Users</a></li>
                 <li class="cursor-pointer"><a href="#contact">Contact</a></li>
-                <button type="button" class="bg-bookmark-red text-white rounded-md px-7 py-3 uppercase">Start</button>
+                <div class="w-1/4 me-10 flex">
+                    <div class="absolute mt-2 pl-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
+                            <path fill="white" fill-opacity="0.25" d="M3 11c0-3.771 0-5.657 1.172-6.828C5.343 3 7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172C21 5.343 21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828C18.657 21 16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172C3 18.657 3 16.771 3 13z" />
+                            <circle cx="12" cy="10" r="4" fill="white" />
+                            <path fill="white" fill-rule="evenodd" d="M18.946 20.253a.232.232 0 0 1-.14.25C17.605 21 15.836 21 13 21h-2c-2.835 0-4.605 0-5.806-.498a.232.232 0 0 1-.14-.249C5.483 17.292 8.429 15 12 15c3.571 0 6.517 2.292 6.946 5.253" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <a href="login.html" target="_blank" class="text-sm font-medium text-white bg-red-500 px-6 py-4 rounded-lg"><span class="text-red-500">___</span>Login</a>
+                </div>
             </ul>
             <div class="flex sm:hidden flex-1 justify-end">
                 <i class="text-2xl fas fa-bars"></i>
@@ -81,8 +93,9 @@ session_start();
         <div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
             <h1 class="text-3xl text-center text-bookmark-blue">Features</h1>
             <p class="text-center text-bookmark-grey mt-4">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, praesentium similique obcaecati accusamus tempora debitis delectus porro quos quas aperiam!
+                Pastebin offers a fast and simple way to store and share text online. With guaranteed privacy, ease of use, and quick sharing capabilities.
             </p>
+
         </div>
         <!-- Feature #1 -->
         <div class="relative mt-20 lg:mt-24">
@@ -176,20 +189,34 @@ session_start();
         </div>
     </section>
 
-    <form class="flex flex-col my-8" id="create-paste" action="controllers/create_paste_process.php" enctype="application/x-www-form-urlencoded" method="post">
-        <input type="text" name="id_user" id="id_user" hidden value=<?php if (isset($_SESSION["id_user"])) echo $_SESSION["id_user"];
-                                                                    else echo "" ?>>
-        <input type="text" name="title" id="title" placeholder="Title" required>
-        <textarea required placeholder="Enter your paste content!" name="content" id="content" cols="30" rows="10"></textarea>
-        <input type="submit" value="Paste!" class=" mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 cursor-pointer transition-all">
-    </form>
+    <section id="create-paste" class="py-20 mt-20">
+        <div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
+            <h1 class="text-3xl text-center text-bookmark-blue">Paste Here!</h1>
+            <p class="text-center text-bookmark-grey mt-4">
+                You can easily share your text or code snippets by pasting them below. Fill in the title and content, then click "Paste!" to save and share your text.
+            </p>
+        </div>
+        <form class="flex flex-col my-8 shadow-lg p-6 bg-bookmark-white rounded-3xl" action="controllers/create_paste_process.php" enctype="application/x-www-form-urlencoded" method="post">
+            <input type="text" name="id_user" id="id_user" hidden value="<?php if (isset($_SESSION['id_user'])) echo $_SESSION['id_user'];
+                                                                            else echo ''; ?>">
 
-    <section id="user" class="py-20 mt-20">
+            <label for="title" class="mb-2 text-lg font-medium text-gray-700">Title</label>
+            <input type="text" name="title" id="title" placeholder="Title" required class="mb-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none">
+
+            <label for="content" class="mb-2 text-lg font-medium text-gray-700">Content</label>
+            <textarea required placeholder="Enter your paste content!" name="content" id="content" cols="30" rows="10" class="mb-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none"></textarea>
+
+            <input type="submit" value="Paste!" class="mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 cursor-pointer transition-all">
+        </form>
+
+    </section>
+
+    <section id="user" class="py-20 mt-14">
         <!-- Heading -->
         <div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
             <h1 class="text-3xl text-center text-bookmark-blue">Our Users</h1>
             <p class="text-center text-bookmark-grey mt-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quam dolorum minima ad. Libero quae reiciendis qui repudiandae, enim voluptatum.
+            Our users include developers, students, and professionals who rely on Pastebin Anda for quick and secure text sharing. Their positive feedback highlights our commitment to privacy, ease of use, and efficiency.
             </p>
         </div>
         <!-- Cards -->
@@ -252,8 +279,8 @@ session_start();
             <div class="flex flex-wrap">
                 <div class="w-1/2 pl-10 px-4 mb-12 text-slate-300 font-medium">
                     <h2 class="font-bold text-4xl text-black mb-5">Contact with Us</h2>
-                    <p>email: pastebin.support@gmail.com</p>
-                    <p>phone: +62 81558921481</p>
+                    <p class="text-black">email: pastebin.support@gmail.com</p>
+                    <p class="text-black">phone: +62 81558921481</p>
                 </div>
                 <form action="mailto:rafidharyu313@gmail.com" method="get">
                     <div class="w-full mb-12">
