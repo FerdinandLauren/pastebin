@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2024 at 12:55 PM
+-- Generation Time: Jun 11, 2024 at 01:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,6 +56,7 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `paste`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_public_url` (`public_url`),
   ADD KEY `id_user` (`id_user`);
 
 --
@@ -73,7 +74,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `paste`
 --
 ALTER TABLE `paste`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
