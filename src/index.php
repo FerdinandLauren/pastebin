@@ -23,7 +23,7 @@ session_start();
         <nav class="fixed top-0 bg-white w-full flex justify-center items-center gap-x-96 py-1 z-20 shadow-xl">
             <!-- <div class="py-1"><img src="assets/img/logo-bookmark.svg" alt="" /></div> -->
             <h1 class="flex items-center font-bold text-2xl text-blue-950">
-                <img src="assets/img/logopng.png" alt="Logo" class="w-16 h-16">astebin
+                <img src="assets/img/logopng.png" alt="Logo" class="w-16 h-16">Pastebin
             </h1>
 
             <div></div>
@@ -206,6 +206,9 @@ session_start();
             <label for="content" class="mb-2 text-lg font-medium text-gray-700">Content</label>
             <textarea required placeholder="Enter your paste content!" name="content" id="content" cols="30" rows="10" class="mb-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none"></textarea>
 
+            <label for="public_url" class="mb-2 text-lg font-medium text-gray-700">Public Url</label>
+            <input type="text" name="public_url" id="public_url" placeholder="Public Url" class="mb-4 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:outline-none">
+
             <input type="submit" value="Paste!" class="mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 cursor-pointer transition-all">
         </form>
 
@@ -216,7 +219,7 @@ session_start();
         <div class="sm:w-3/4 lg:w-5/12 mx-auto px-2">
             <h1 class="text-3xl text-center text-bookmark-blue">Our Users</h1>
             <p class="text-center text-bookmark-grey mt-4">
-            Our users include developers, students, and professionals who rely on Pastebin Anda for quick and secure text sharing. Their positive feedback highlights our commitment to privacy, ease of use, and efficiency.
+                Our users include developers, students, and professionals who rely on Pastebin Anda for quick and secure text sharing. Their positive feedback highlights our commitment to privacy, ease of use, and efficiency.
             </p>
         </div>
         <!-- Cards -->
