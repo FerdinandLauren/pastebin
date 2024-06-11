@@ -23,7 +23,7 @@ else
     $sql = "INSERT INTO paste (title, content, public_url) VALUES ('$title', '$content', '$public_url')";
 
 if ($conn->query($sql) === TRUE) {
-    header('location:../index.php');
+    header("location:../p.php?public_url=$public_url");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
