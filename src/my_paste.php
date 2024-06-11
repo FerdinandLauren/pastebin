@@ -20,22 +20,13 @@ session_start();
 <body class="font-Poppins bg-gray-100">
     <!-- Navbar -->
     <header>
-        <nav class="bg-white shadow-md">
+        <nav class="bg-white w-full flex justify-center items-center gap-x-96 z-20 shadow-xl">
             <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-                <h1 class="text-xl font-bold text-blue-950 flex items-center gap-2">
-                    <img src="assets/img/logopng.png" alt="Logo" class="w-10 h-10">Pastebin
-                </h1>
-                <ul class="flex gap-8 text-sm text-gray-600 uppercase">
-                    <li class="cursor-pointer"><a href="#feature">Features</a></li>
-                    <li class="cursor-pointer"><a href="#user">Users</a></li>
-                    <li class="cursor-pointer"><a href="#contact">Contact</a></li>
-                    <?php if (isset($_SESSION['id_user'])) : ?>
-                        <li class="cursor-pointer"><a href="my_paste.php">My Paste</a></li>
-                    <?php else : ?>
-                        <li>
-                            <a href="login.php" class="px-3 py-1 bg-red-500 text-white rounded-md">Login</a>
-                        </li>
-                    <?php endif; ?>
+            <h1 class="flex items-center font-bold text-2xl text-blue-950">
+                <img src="assets/img/logopng.png" alt="Logo" class="w-16 h-16">Pastebin
+            </h1>
+                <ul class="flex gap-8 text-sm text-gray-600 uppercase mr-4">
+                    <li class="cursor-pointer"><a href="index.php#create-paste">Back</a></li>
                 </ul>
                 <div class="flex sm:hidden">
                     <i class="text-2xl fas fa-bars"></i>
