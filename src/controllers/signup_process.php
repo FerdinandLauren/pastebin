@@ -13,7 +13,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO users (email, password) VALUES ('$email', '$hashed_password')";
 
 if ($conn->query($sql) === TRUE) {
-    header('location:../index.php');
+    header('location:../login.php');
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
