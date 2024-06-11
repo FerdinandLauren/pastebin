@@ -31,7 +31,10 @@ session_start();
                 <li class="cursor-pointer"><a href="#feature">Features</a></li>
                 <li class="cursor-pointer"><a href="#user">Users</a></li>
                 <li class="cursor-pointer"><a href="#contact">Contact</a></li>
-                <div class="w-1/4 me-10 flex">
+                <?php if (isset($_SESSION['id_user']))
+                    echo '<li class="cursor-pointer"><a href="my_paste.php">My Paste</a></li>';
+                else
+                    echo '<div class="w-1/4 me-10 flex">
                     <div class="absolute mt-2 pl-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
                             <path fill="white" fill-opacity="0.25" d="M3 11c0-3.771 0-5.657 1.172-6.828C5.343 3 7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172C21 5.343 21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828C18.657 21 16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172C3 18.657 3 16.771 3 13z" />
@@ -39,8 +42,8 @@ session_start();
                             <path fill="white" fill-rule="evenodd" d="M18.946 20.253a.232.232 0 0 1-.14.25C17.605 21 15.836 21 13 21h-2c-2.835 0-4.605 0-5.806-.498a.232.232 0 0 1-.14-.249C5.483 17.292 8.429 15 12 15c3.571 0 6.517 2.292 6.946 5.253" clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <a href="login.html" target="_blank" class="text-sm font-medium text-white bg-red-500 px-6 py-4 rounded-lg"><span class="text-red-500">___</span>Login</a>
-                </div>
+                    <a href="login.php" class="text-sm font-medium text-white bg-red-500 px-6 py-4 rounded-lg"><span class="text-red-500">___</span>Login</a>
+                </div>'; ?>
             </ul>
             <div class="flex sm:hidden flex-1 justify-end">
                 <i class="text-2xl fas fa-bars"></i>
