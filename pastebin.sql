@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 03:54 PM
+-- Generation Time: Jun 11, 2024 at 12:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,6 +31,7 @@ CREATE TABLE `paste` (
   `id` bigint(20) NOT NULL,
   `title` varchar(64) DEFAULT NULL,
   `content` text DEFAULT NULL,
+  `public_url` varchar(32) NOT NULL,
   `id_user` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
