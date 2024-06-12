@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
     $hashed_password = $row['password'];
 
     // Verify password
-    if (password_verify($password, $hashed_password)) {
+    if (password_verify($password, $hashed_password) && $row['status'] == "AKTIF") {
         // Password is correct, set session variables
         $_SESSION['id_user'] = $row['id'];
         header('location:../index.php');

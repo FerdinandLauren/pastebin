@@ -10,7 +10,7 @@ $password = $_POST['password'];
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // SQL to insert user
-$sql = "INSERT INTO users (email, password) VALUES ('$email', '$hashed_password')";
+$sql = "INSERT INTO users (email, password, status) VALUES ('$email', '$hashed_password', 'AKTIF')";
 
 if ($conn->query($sql) === TRUE) {
     header('location:../login.php');
