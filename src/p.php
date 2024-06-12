@@ -40,54 +40,38 @@ $content = $row['content'];
         </nav>
     </header>
 
-<main class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-    <div class="space-y-6">
-        <h1 class="text-2xl font-bold text-center text-gray-800">Paste Details</h1>
-        <div class="flex flex-col space-y-2">
-            <label class="text-gray-700 font-semibold">Title:</label>
-            <p class="border border-gray-300 rounded-md p-2"><?php echo htmlspecialchars($title); ?></p>
-        </div>
-        <div class="flex flex-col space-y-2">
-            <label class="text-gray-700 font-semibold">Content:</label>
-            <div class="border border-gray-300 rounded-md p-2"><?php echo nl2br(htmlspecialchars($content)); ?></div>
-        </div>
-        <div class="flex flex-col space-y-2">
-            <label class="text-gray-700 font-semibold">Public URL:</label>
-            <div class="flex items-center border border-gray-300 rounded-md p-2">
-                <p id="publicUrl" class="flex-grow"><?php echo htmlspecialchars($public_url); ?></p>
-                <button onclick="copyToClipboard()" class="ml-2 bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">Copy</button>
+    <main class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+        <div class="space-y-6">
+            <h1 class="text-2xl font-bold text-center text-gray-800">Paste Details</h1>
+            <div class="flex flex-col space-y-2">
+                <label class="text-gray-700 font-semibold">Title:</label>
+                <p class="border border-gray-300 rounded-md p-2"><?php echo htmlspecialchars($title); ?></p>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label class="text-gray-700 font-semibold">Content:</label>
+                <div class="border border-gray-300 rounded-md p-2"><?php echo nl2br(htmlspecialchars($content)); ?></div>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label class="text-gray-700 font-semibold">Public URL:</label>
+                <div class="flex items-center border border-gray-300 rounded-md p-2">
+                    <p id="publicUrl" class="flex-grow"><?php echo htmlspecialchars($public_url); ?></p>
+                    <button onclick="copyToClipboard()" class="ml-2 bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">Copy</button>
+                </div>
             </div>
         </div>
-        <!-- <div class="py-4">
-            <a href="my_paste.php" class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">My Paste</a>
-        </div> -->
-    </div>
-</main>
+    </main>
 
-<script>
-    function copyToClipboard() {
-        var copyText = document.getElementById("publicUrl").innerText;
-        var textarea = document.createElement("textarea");
-        textarea.value = copyText;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-        alert("Copied to clipboard: " + copyText);
-    }
-</script>
-
-
-<script>
-    function copyToClipboard() {
-        var copyText = document.getElementById("publicUrl").innerText;
-        navigator.clipboard.writeText(copyText).then(function() {
-            alert("Copied to clipboard: " + copyText);
-        }, function(err) {
-            console.error("Could not copy text: ", err);
-        });
-    }
-</script>
+    <script>
+        function copyToClipboard() {
+            var publicUrl = document.getElementById("publicUrl").innerText;
+            var fullUrl = "http://localhost/pastebin/pastebin/src/p.php?public_url=" + publicUrl;
+            navigator.clipboard.writeText(fullUrl).then(function() {
+                alert("Copied to clipboard: " + fullUrl);
+            }, function(err) {
+                console.error("Could not copy text: ", err);
+            });
+        }
+    </script>
 </body>
 
 </html>
